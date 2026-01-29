@@ -1,0 +1,9 @@
+{
+  "description": "项目描述",
+  "projectname": "王牌",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false
+  },
+  "libVersion": "3.6.1"
+}

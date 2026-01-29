@@ -1,0 +1,15 @@
+<view class="name-edit">
+  <t-input
+    borderless
+    model:value="{{nameValue}}"
+    placeholder="请输入文字"
+    label="{{config[selected].label}}"
+    clearable
+    bind:clear="clearContent"
+    type="{{config[selected].input_type}}"
+  />
+  <view class="name-edit__input--desc"> {{config[selected].des}} </view>
+  <view class="name-edit__wrapper">
+    <t-button block shape="round" disabled="{{!nameValue}}"  bind:tap="onSubmit">保存</t-button>
+  </view>
+</view>

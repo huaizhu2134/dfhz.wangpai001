@@ -1,0 +1,38 @@
+<view class="address-container">
+  <view class="address-list" wx:if="{{addressList.length > 0}}">
+    <block wx:for="{{addressList}}" wx:for-index="index" wx:for-item="address" wx:key="_id">
+      <view class="address-item" bind:tap="selectHandle" data-detail="{{address}}">
+        <view class="address-info">
+          <view class="game-name">{{address.gameName}}</view>
+          <view class="game-detail" wx:if="{{address.gameId}}">编号：{{address.gameId}}</view>
+          <view class="game-platform">{{address.gamePlatform === 'mobile' ? '手机端' : '电脑端'}}</view>
+        </view>
+        <view class="address-actions" catch:tap="noop">
+          <view class="action-btn" bind:tap="onEditAddress" data-detail="{{address}}">
+            <t-icon name="edit" size="36rpx" />
+            编辑
+          </view>
+          <view class="action-btn delete" bind:tap="onDeleteAddress" data-id="{{address._id}}">
+            <t-icon name="delete" size="36rpx" />
+            删除
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view wx:else class="no-address">
+    <t-empty icon="" description="暂无游戏账号，赶快添加吧" />
+  </view>
+  <view class="bottom-fixed">
+    <view class="btn-wrap">
+      <view class="address-btn {{addressList.length >= 20 ? 'btn-default':''}}" bind:tap="createHandle">
+        <t-icon name="add" size="48rpx" color="#fff" t-class="custom-class" />
+        <text>新建游戏账号</text>
+      </view>
+    </view>
+    <view class="footer" wx:if="{{addressList.length >= 20}}">最多支持添加20个游戏账号</view>
+  </view>
+</view>
+<t-toast id="t-toast" />
+<t-dialog id="t-dialog" />
+<loading-dialog show="{{loading}}" />

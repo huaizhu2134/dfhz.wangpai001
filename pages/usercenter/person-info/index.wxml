@@ -1,0 +1,30 @@
+<view class="person-info">
+  <t-cell-group>
+    <t-cell title="头像" arrow data-type="avatar" bind:click="onClickCell" t-class="t-cell-class" t-class-left="order-group__left">
+      <button
+        wx:if="{{supportChooseAvatar}}"
+        open-type="chooseAvatar"
+        bind:chooseavatar="onChooseAvatar"
+        class="avatarBtn"
+        plain
+        style="border: none; background: none; padding: 0;"
+        slot="note"
+      >
+        <t-avatar image="{{avatarDisplayUrl || personInfo.avatarUrl || defaultAvatarUrl}}" />
+      </button>
+      <button
+        wx:else
+        bind:tap="onChooseImage"
+        class="avatarBtn"
+        plain
+        style="border: none; background: none; padding: 0;"
+        slot="note"
+      >
+        <t-avatar image="{{avatarDisplayUrl || personInfo.avatarUrl || defaultAvatarUrl}}" />
+      </button>
+    </t-cell>
+    <t-cell title="昵称" arrow note="{{personInfo.nickName}}" data-type="name" bind:click="onClickCell" t-class="t-cell-class" t-class-left="order-group__left" />
+    <t-cell title="获取微信头像昵称" arrow data-type="wechatProfile" bind:click="onClickCell" t-class="t-cell-class" t-class-left="order-group__left" />
+  </t-cell-group>
+</view>
+<t-toast id="t-toast" />

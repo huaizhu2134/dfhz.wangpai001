@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "游戏账号",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-image": "/components/webp-image/index",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "loading-dialog": "../../../../components/loading-dialog/index"
+  }
+}

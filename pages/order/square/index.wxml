@@ -1,0 +1,63 @@
+<view class="square-container">
+  <view class="square-tabs">
+    <t-tabs bind:change="onTabChange" value="{{curTab}}">
+      <t-tab-panel wx:for="{{tabs}}" wx:for-item="item" wx:key="key" label="{{item.text}}" value="{{item.key}}" />
+    </t-tabs>
+  </view>
+  <t-pull-down-refresh value="{{isRefeshing}}" bind:refresh="onPullDownRefresh" t-class-indicator="t-loading-indicator">
+    <view class="order-list">
+      <block wx:if="{{orders.length > 0}}">
+        <view class="order-card" wx:for="{{orders}}" wx:key="_id">
+          <view class="card-header">
+            <text class="order-no">单号 {{item.orderNo}}</text>
+            <t-tag theme="primary" variant="light" size="small">{{item.statusName}}</t-tag>
+          </view>
+          <view class="card-body">
+            <view class="info-row price-row">
+              <text class="label">报酬</text>
+              <text class="value price">¥{{item.reward}}</text>
+            </view>
+            <view class="info-row">
+              <text class="label">需求</text>
+              <text class="value">{{item.goods[0].goodsName || '无特殊要求'}}</text>
+            </view>
+            <view class="info-row">
+              <text class="label">进度</text>
+              <view class="value">
+                 <text style="color: {{item.boosters && item.boosters.length >= item.maxBoosters ? '#fa4126' : '#2ba471'}}">{{item.boosters ? item.boosters.length : 0}}</text>
+                 <text style="color: #999; margin: 0 4rpx;">/</text>
+                 <text>{{item.maxBoosters || 1}} 人</text>
+              </view>
+            </view>
+          </view>
+          <view class="card-footer">
+            <t-button 
+              wx:if="{{item.canIncreaseManpower}}" 
+              theme="light" 
+              size="small" 
+              icon="user-add"
+              data-id="{{item._id}}" 
+              bindtap="onIncreaseManpower"
+              style="margin-right: 16rpx;"
+            >加人</t-button>
+            
+            <t-button 
+              theme="{{item.hasTaken ? 'default' : 'primary'}}" 
+              variant="{{item.hasTaken ? 'outline' : 'base'}}"
+              size="small" 
+              icon="{{item.hasTaken ? 'check' : 'cursor'}}"
+              data-id="{{item._id}}" 
+              bindtap="onTakeOrder"
+              disabled="{{item.hasTaken}}"
+            >{{item.hasTaken ? '已接单' : '抢单'}}</t-button>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="empty-tip">
+        <t-icon name="info-circle" size="80rpx" color="#ddd" style="margin-bottom: 20rpx;" />
+        <text>{{curTab === 'PENDING' ? '暂无待接订单，稍后再来吧' : '暂无已接订单'}}</text>
+      </view>
+    </view>
+  </t-pull-down-refresh>
+  <t-toast id="t-toast" />
+</view>

@@ -1,0 +1,16 @@
+<view class="address-card wr-class">
+  <t-cell wx:if="{{addressData && addressData.gameName}}" bindtap="onAddressTap" hover>
+    <view class="order-address" slot="title">
+      <view class="address-content">
+        <view class="detail">游戏昵称：{{addressData.gameName}}</view>
+        <view class="info" wx:if="{{addressData.gameId}}">编号：{{addressData.gameId}} · {{addressData.gamePlatform === 'mobile' ? '手机端' : '电脑端'}}</view>
+        <view class="info" wx:else>平台：{{addressData.gamePlatform === 'mobile' ? '手机端' : '电脑端'}}</view>
+      </view>
+      <t-icon class="address__right" name="chevron-right" color="#BBBBBB" size="40rpx" />
+    </view>
+  </t-cell>
+  <t-cell wx:else bindtap="onAddTap" title="添加游戏账号" hover>
+    <t-icon name="add-circle" slot="left-icon" size="40rpx" />
+  </t-cell>
+  <view class="top-line" />
+</view>

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "接单广场",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel"
+  }
+}

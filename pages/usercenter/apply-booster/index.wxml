@@ -1,0 +1,11 @@
+<view class="apply-container">
+  <view class="title">申请成为打手</view>
+  <view class="form-content">
+    <t-input label="真实姓名" placeholder="请输入您的真实姓名" bindchange="onNameChange" value="{{name}}" />
+    <t-input label="微信号" placeholder="请输入您的微信号" bindchange="onWechatChange" value="{{wechat}}" />
+  </view>
+  <view class="submit-btn">
+    <t-button theme="primary" size="large" block bindtap="submitApply" loading="{{loading}}">提交申请</t-button>
+  </view>
+  <t-toast id="t-toast" />
+</view>

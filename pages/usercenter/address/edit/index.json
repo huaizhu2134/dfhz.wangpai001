@@ -1,0 +1,19 @@
+{
+  "navigationBarTitleText": "编辑游戏账号",
+  "usingComponents": {
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-switch": "tdesign-miniprogram/switch/switch",
+    "t-picker": "tdesign-miniprogram/picker/picker",
+    "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-select-picker": "../../components/ui-select-picker/index",
+    "loading-dialog": "../../../../components/loading-dialog/index"
+  }
+}
